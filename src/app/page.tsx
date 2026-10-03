@@ -79,10 +79,10 @@ export default function SurveyPage() {
 
   if (view === 'intro') {
     return (
-      <main className="min-h-screen flex items-center justify-center p-4">
-        <div className="glass-panel max-w-lg w-full rounded-3xl p-10 text-center transform transition-all duration-500 animate-in fade-in zoom-in-95 shadow-2xl relative z-10">
-          <div className="mx-auto w-16 h-16 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mb-8 shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <main className="min-h-screen flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-900">
+        <div className="glass-panel max-w-lg w-full rounded-2xl p-10 text-center">
+          <div className="mx-auto w-14 h-14 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
               <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -90,14 +90,14 @@ export default function SurveyPage() {
               <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
           </div>
-          <h1 className="text-3xl font-bold mb-4 text-foreground leading-tight">{title}</h1>
+          <h1 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white leading-tight">{title}</h1>
           <p className="text-slate-500 dark:text-slate-400 mb-4 leading-relaxed whitespace-pre-line">
             {description}
           </p>
           <p className="text-sm text-slate-400 dark:text-slate-500 mb-8 italic">
             {note}
           </p>
-          <div className="mb-10 text-left">
+          <div className="mb-8 text-left">
             <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
               Please enter your name to begin:
             </label>
@@ -107,16 +107,16 @@ export default function SurveyPage() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="John Doe"
-              className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-foreground focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all"
             />
           </div>
           <button 
             onClick={() => setView('survey')}
             disabled={!name.trim()}
-            className={`px-8 py-4 font-medium rounded-xl transition-all duration-200 w-full text-lg flex items-center justify-center space-x-2 group
+            className={`px-8 py-3.5 font-medium rounded-lg transition-all duration-200 w-full text-base flex items-center justify-center space-x-2 group
               ${name.trim() 
-                ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5' 
-                : 'bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed'
+                ? 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm hover:shadow-md' 
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed'
               }`}
           >
             <span>Start Survey</span>
@@ -131,12 +131,12 @@ export default function SurveyPage() {
 
   if (view === 'completed') {
     return (
-      <main className="min-h-screen flex items-center justify-center p-4">
-        <div className="glass-panel max-w-lg w-full rounded-3xl p-10 text-center transform transition-all duration-500 animate-in fade-in zoom-in-95 shadow-2xl relative z-10">
-          <div className="mx-auto w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6 shadow-sm">
+      <main className="min-h-screen flex items-center justify-center p-4 bg-slate-50 dark:bg-slate-900">
+        <div className="glass-panel max-w-lg w-full rounded-2xl p-10 text-center">
+          <div className="mx-auto w-20 h-20 bg-green-50 dark:bg-green-950/50 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-6">
             <CheckCircleIcon />
           </div>
-          <h2 className="text-3xl font-bold mb-4 text-foreground">Thank You!</h2>
+          <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Thank You!</h2>
           <p className="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
             Your responses have been successfully recorded. We appreciate you taking the time to share your insights with us.
           </p>
@@ -147,7 +147,7 @@ export default function SurveyPage() {
               setAnswers({});
               setName('');
             }}
-            className="px-8 py-3 bg-foreground text-background font-medium rounded-xl hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors duration-200 shadow-lg"
+            className="px-8 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-all duration-200 shadow-sm hover:shadow-md"
           >
             Take another survey
           </button>
@@ -157,28 +157,28 @@ export default function SurveyPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4 sm:p-8 relative">
-      <div className="glass-panel w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl relative z-10">
+    <main className="min-h-screen flex items-center justify-center p-4 sm:p-8 bg-slate-50 dark:bg-slate-900">
+      <div className="glass-panel w-full max-w-2xl rounded-2xl overflow-hidden relative">
         {/* Top Progress Bar */}
-        <div className="h-2 w-full bg-slate-200/50 dark:bg-slate-800/50 absolute top-0 left-0">
+        <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-700 absolute top-0 left-0">
           <div 
-            className="h-full bg-blue-500 transition-all duration-700 ease-in-out"
+            className="h-full bg-indigo-600 transition-all duration-700 ease-in-out"
             style={{ width: `${progress}%` }}
           />
         </div>
 
-        <div className="p-8 sm:p-12">
+        <div className="p-8 sm:p-12 pt-10">
           {/* Header */}
           <div className="mb-10">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-              <span className="text-blue-600 dark:text-blue-400 font-semibold tracking-wider text-xs sm:text-sm uppercase block mb-1 sm:mb-0">
+              <span className="text-indigo-600 dark:text-indigo-400 font-semibold tracking-wider text-xs sm:text-sm uppercase block mb-1 sm:mb-0">
                 {question.section}
               </span>
-              <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">
+              <span className="text-slate-400 dark:text-slate-500 font-medium text-sm">
                 Question {currentStep + 1} of {questions.length}
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-foreground mt-2 leading-tight">
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2 leading-tight">
               {question.title}
             </h1>
           </div>
@@ -191,20 +191,20 @@ export default function SurveyPage() {
                 <button
                   key={option.id}
                   onClick={() => handleSelect(option.id)}
-                  className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-center justify-between group
+                  className={`w-full text-left p-4 rounded-lg border transition-all duration-150 flex items-center justify-between group
                     ${isSelected 
-                      ? 'border-blue-500 bg-white/50 dark:bg-blue-900/20 shadow-md transform scale-[1.01]' 
-                      : 'border-white/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-600/50 hover:bg-white/30 dark:hover:bg-slate-800/30 hover:scale-[1.01]'
+                      ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-950/30 ring-1 ring-indigo-500' 
+                      : 'border-slate-200 dark:border-slate-600 hover:border-indigo-300 dark:hover:border-indigo-600 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                 >
-                  <span className={`text-base sm:text-lg font-medium transition-colors ${isSelected ? 'text-blue-700 dark:text-blue-300' : 'text-slate-700 dark:text-slate-300'}`}>
+                  <span className={`text-base sm:text-lg font-medium transition-colors ${isSelected ? 'text-indigo-700 dark:text-indigo-300' : 'text-slate-700 dark:text-slate-300'}`}>
                     {option.label}
                   </span>
                   
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-150
                     ${isSelected 
-                      ? 'border-blue-500 bg-blue-500 text-white' 
-                      : 'border-slate-300 dark:border-slate-600 group-hover:border-blue-400'
+                      ? 'border-indigo-600 bg-indigo-600 text-white' 
+                      : 'border-slate-300 dark:border-slate-500 group-hover:border-indigo-400'
                     }`}
                   >
                     {isSelected && <CheckIcon />}
@@ -215,10 +215,10 @@ export default function SurveyPage() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between pt-6 border-t border-slate-200/50 dark:border-slate-700/50">
+          <div className="flex items-center justify-between pt-6 border-t border-slate-100 dark:border-slate-700">
             <button
               onClick={handlePrev}
-              className="flex items-center space-x-2 px-4 py-2 font-medium transition-colors text-slate-600 dark:text-slate-300 hover:text-foreground"
+              className="flex items-center space-x-2 px-4 py-2 font-medium transition-colors text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400"
             >
               <ArrowLeftIcon />
               <span>{currentStep === 0 ? 'Back to Intro' : 'Previous'}</span>
@@ -227,10 +227,10 @@ export default function SurveyPage() {
             <button
               onClick={handleNext}
               disabled={!answers[question.id] || isSubmitting}
-              className={`flex items-center space-x-2 px-8 py-3 rounded-full font-medium transition-all duration-200
+              className={`flex items-center space-x-2 px-8 py-3 rounded-lg font-medium transition-all duration-200
                 ${answers[question.id] && !isSubmitting
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5'
-                  : 'bg-slate-200/50 dark:bg-slate-800/50 text-slate-400 dark:text-slate-500 cursor-not-allowed'
+                  ? 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm hover:shadow-md'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed'
                 }`}
             >
               <span>{isSubmitting ? 'Submitting...' : currentStep === questions.length - 1 ? 'Complete Survey' : 'Next Question'}</span>
