@@ -169,12 +169,25 @@ export default function AdminDashboard() {
             <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-1">Admin Dashboard</h1>
             <p className="text-slate-500 dark:text-slate-400">Overview of collected survey responses.</p>
           </div>
+          <div className="flex flex-wrap gap-3">
+          <a
+            href="/admin/conclusion"
+            className="px-5 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors inline-flex items-center space-x-2 text-sm shadow-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span>View Conclusion</span>
+          </a>
           <a 
             href="/"
             className="px-5 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 hover:border-indigo-300 dark:hover:border-indigo-600 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium rounded-lg transition-colors inline-flex items-center space-x-2 text-sm shadow-sm"
           >
             <span>View Survey</span>
           </a>
+          </div>
         </div>
         
         {/* Stats Row */}
